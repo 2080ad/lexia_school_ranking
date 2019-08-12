@@ -1,4 +1,6 @@
 # Getting Started
+Clone or download the project from Git into your favorite IDE (with JDK 1.8).
+Build the project using Maven (clean compile package).  Once the Jar file is built, proceed to the steps below:
 
 a. start up the service with the following command line:
 
