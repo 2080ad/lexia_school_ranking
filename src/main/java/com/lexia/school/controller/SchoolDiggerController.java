@@ -16,7 +16,7 @@ import com.lexia.school.repos.RankingRepository;
 import com.lexia.school.repos.SchoolRepository;
 
 /**
- * school ranking app controller to request
+ * school ranking app controller to request service from School Digger APIs.
  * 
  * @author jchen
  *
@@ -29,24 +29,22 @@ public class SchoolDiggerController {
 	SchoolRepository schoolRepo;
 	@Autowired
 	RankingRepository rankingRepo;
-	
 
 	@RequestMapping("/schoolranking/getSchoolRankings/{year}")
 	public ResponseEntity<String> getSchoolRankings(@PathVariable("year") int ranking_year) {
 		String response = "";
 		HttpHeaders headers = new HttpHeaders();
 		String state = "MA";
-		// int ranking_year = 2018;
 
 		List<School> schoolList = schoolDiggerClient.getSchools(state, ranking_year);
 
 		if (!schoolList.isEmpty()) {
 			schoolRepo.saveAll(schoolList);
-			
-			for(School school:schoolList) {
+
+			for (School school : schoolList) {
 				rankingRepo.saveAll(school.getRankingList());
 			}
-			
+
 			response = schoolList.size()
 					+ " schools and rankings saved to the database.  Please see the tables for details.";
 		} else {

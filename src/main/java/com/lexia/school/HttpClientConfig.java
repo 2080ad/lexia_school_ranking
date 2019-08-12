@@ -130,7 +130,6 @@ public class HttpClientConfig {
 
 		return httpClient;
 
-
 	}
 
 	@Bean
