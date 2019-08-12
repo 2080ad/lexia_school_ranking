@@ -1,14 +1,14 @@
 # Getting Started
 
-1. start up the service with the following command line:
+a. start up the service with the following command line:
 
 java -jar lexia_school_ranking-0.0.1-SNAPSHOT.jar schoolRankingServer 8080
 
-2. After service started, open a browser and traverse the url:
+b. After service started, open a browser and traverse the url:
 
 http://localhost:8080/schoolranking/getSchoolRankings/2017
 
-3. After seeing http response with 200 status. Got to the H2 db to check the tables:
+c. After seeing http response with 200 status. Got to the H2 db to check the tables:
 
 http://localhost:8080/console
 (login with JDBC-URL: jdbc:h2:mem:schoolranking-app
